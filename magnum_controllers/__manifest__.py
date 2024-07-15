@@ -8,8 +8,10 @@
     "license": "LGPL-3",
     "author": "",
     "website": "",
-    "depends": ["base",'website'],
-    "data": [        
+    "depends": ["base",'website','crm'],
+    "data": [
+        'data/mail_template_crm_lead.xml',
+
     ],
 
 }

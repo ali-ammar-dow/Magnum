@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="crm_lead" model="mail.template">
+            <field name="name">New Crm Lead</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="body_html" type="html">
+                <div>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">Hello,</p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        New Crm Lead has been created by:
+                        <t t-out="object.partner_id.name or ''">Customer Name
+                            <t>
+                            </t>
+                        </t>
+                    </p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        Customer Phone:
+                        <t t-out="object.phone">Customer phone
+                            <t>
+                            </t>
+                        </t>
+                    </p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        Customer Email:
+                        <t t-out="object.email_from or ''">Customer email
+                            <t>
+                            </t>
+                        </t>
+                    </p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        <t t-out="object.name or ''">CRM Name</t>
+                    </p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        with these details
+                    </p>
+                    <div t-out="object.description or ''">Description</div>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;"></p>
+                    <p style="margin:0px 0 16px 0;box-sizing:border-box;">
+                        Regards
+                    </p>
+
+                </div>
+            </field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>
